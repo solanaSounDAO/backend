@@ -33,6 +33,18 @@ export class Music {
   @Column()
   cover_image_cid: string; // 커버 이미지 CID
 
+  @Column()
+  token_address: string; // 토큰 주소
+
+  @Column()
+  pool_address: string; // 풀 주소
+
+  @Column({ type: 'int', default: 0 })
+  play_count: number; // 재생수
+
+  @Column({ type: 'int', default: 0 })
+  likes: number; // 좋아요 수
+
   @ManyToOne(() => User, (user) => user.music)
   @JoinColumn({ name: 'wallet_address' }) //Music 테이블의 wallet_address 컬럼으로 User와 연결해
   artist: User; //이 Music 객체의 artist속성으로 접근하면, User 객체를 가져올 수 있음
