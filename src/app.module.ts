@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Music } from './entities/music.entity';
 import { Token } from './entities/token.entity';
+import { UsersModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { Token } from './entities/token.entity';
       synchronize: true, // 개발 환경에서만 사ㄷ용, 실제 운영 환경에서는 false로 설정
       logging: true, // 쿼리 로깅 활성화
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
